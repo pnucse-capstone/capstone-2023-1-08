@@ -29,3 +29,5 @@
 ```
 
 ```
+2. 동영상 다운로드
+https://photos.app.goo.gl/Lb5NjM2ecGv6BcF27
