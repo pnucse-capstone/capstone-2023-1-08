@@ -1,17 +1,17 @@
 from flask import Flask
 import cv2
 from flask import Response
-from main import mirnet
+from models.model import mirnet, cycle
 import time
 from flask import render_template
 
 app = Flask(__name__)
 model = mirnet(size=(256, 256))
 
-
+#model = cycle(size=(256, 256))
 
 def get_frame():
-    capture = cv2.VideoCapture('testvideo2.mp4') # 노트북의 경우 0, 외부 장치 번호가 1~n 까지 순차적으로 할당
+    capture = cv2.VideoCapture('video/videoplayback1.mp4') # 노트북의 경우 0, 외부 장치 번호가 1~n 까지 순차적으로 할당
 
     # 카메라의 속성 설정 메서드 set
     # capture.set(propid, value)로 카메라의 속성(propid)과 값(value)을 설정
@@ -28,16 +28,18 @@ def get_frame():
         for _ in range(3):
             time.sleep(0.01)
             ret, frame = capture.read()
+        #ret, frame = capture.read()
         # flip : flipcode 가 0 이면 가로대칭 변경. 1이면 세로대칭 변경 
        
-        rst_img = model.infer(frame) 
+        rst_img = model.infer(frame)
+        
+        
+        original_image = cv2.resize(frame, dsize=model.desired_size, interpolation=cv2.INTER_LINEAR)
+        rst_img = cv2.hconcat([original_image, rst_img])
+
         #input size (512, 512)
         curr = time.time()
-        #rst_img = homorphic_filter(rst_img)
-        print(f"image filtering = {time.time() - curr}" )
-        resized_img = cv2.resize(frame, dsize=model.desired_size, interpolation=cv2.INTER_LINEAR)
-        frame = cv2.hconcat([resized_img, rst_img])
-        ret, buffer = cv2.imencode('.jpg', frame)
+        ret, buffer = cv2.imencode('.jpg', rst_img)
         frame = buffer.tobytes()
         yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
@@ -55,4 +57,4 @@ def video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0')
+	app.run(host='0.0.0.0', port='8080')
