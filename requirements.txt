@@ -8,6 +8,7 @@ click==8.1.7
 colorama==0.4.6
 contourpy==1.1.0
 cycler==0.11.0
+dominate==2.8.0
 filelock==3.12.4
 Flask==3.0.0
 flatbuffers==23.5.26
@@ -58,6 +59,9 @@ tensorflow-io-gcs-filesystem==0.31.0
 termcolor==2.3.0
 tqdm==4.66.1
 typing_extensions==4.7.1
+torch==2.0.1
+torchvision==0.15.2
 urllib3==1.26.16
 Werkzeug==3.0.0
 wrapt==1.15.0
+
