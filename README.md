@@ -47,3 +47,4 @@ pip install -r requirements.txt
 ```
 python3 app.py
 ```
+![실행 예시 이미지](./docs/example.png)
