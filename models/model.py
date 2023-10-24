@@ -15,7 +15,7 @@ import torch
 
 class mirnet:
     def __init__(self, size):
-        self.model = tf.keras.models.load_model("models/fast_mirnet", compile=False)
+        self.model = tf.keras.models.load_model("models/mirnet", compile=False)
         self.desired_size = size
     def infer(self, image):
         preprocess_image ,original_image = self.preprocessing(image)

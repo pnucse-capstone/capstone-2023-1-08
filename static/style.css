@@ -1,9 +1,22 @@
-#left_label{
+#first_label{
+  float : left;
+  margin-left: 10%;
+  font-size: large;
+}
+
+#second_label{
     float : left;
     margin-left: 20%;
     font-size: large;
 }
-#right_label{
+
+#third_label{
+  float : right;
+  margin-right: 10%;
+  font-size: large;
+}
+
+#fourth_label{
     float : right;
     margin-right: 20%;
     font-size: large;

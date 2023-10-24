@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <title>sign-language</title>
     <link rel="stylesheet" href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
 </head>
 <body>
     <div class="label">
-        <p id="left_label">original image </p>
-        <p id="right_label">enhanced image </p> 
+        <p id="first_label">original image </p>
+        <p id="second_label">mirnet </p>
+        <p id="third_label">mirnet+cyclegan</p> 
+        <p id="fourth_label">cyclegan</p> 
     </div>
     <div class="container">
         <div class ="row">
-            <div class = "col-lg-8 offst-lg-2">
-                <img src ="{{url_for('video_feed')}}" width="100%">
-            </div>
+          <div class = "col-lg-8 offst-lg-2">
+            <img src ="{{url_for('video_feed')}}" width="100%">
+          </div>
         </div>
+        
     </div>
 </body>
 </html>
