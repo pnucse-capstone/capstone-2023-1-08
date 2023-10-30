@@ -20,7 +20,7 @@
 
 ## 4. 소개 및 시연 영상
 
-[![부산대학교 정보컴퓨터공학부 소개](http://img.youtube.com/vi/zh_gQ_lmLqE/0.jpg)](https://www.youtube.com/watch?v=zh_gQ_lmLqE)
+[![졸업과제 시연 영상 - 8조](./docs/youtube_title.png)](https://www.youtube.com/watch?v=tGyWVk4Tg2s&list=PLFUP9jG-TDp96chsm66TfMPlAJXIt6Gr9&index=8)
 
 ## 5. 사용법
 
